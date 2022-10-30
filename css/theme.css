@@ -1,0 +1,17 @@
+:root {
+	/* Primary */
+	--bright-blue: hsl(220, 98%, 61%);
+	--check-background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+	/* Neutral */
+	--very-light-gray: hsl(0, 0%, 98%);
+	/* Transition */
+	--transition: 0.3s;
+}
+
+html.light:root {
+	--body-background: hsl(236, 33%, 92%);
+}
+
+html.dark:root {
+	--body-background: hsl(235, 21%, 11%);
+}

@@ -1,2 +1,3 @@
-# todo-app
-Simple todo app using HTML, CSS and JavaScript
+# Todo app
+
+Simple todo app using HTML, CSS (OOCSS + BEM) and JavaScript.
