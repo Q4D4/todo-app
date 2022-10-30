@@ -6,12 +6,23 @@
 	--very-light-gray: hsl(0, 0%, 98%);
 	/* Transition */
 	--transition: 0.3s;
+	/* Border Radius */
+	--border-radius-md: 5px;
+	--border-rounded: 50%;
 }
 
 html.light:root {
 	--body-background: hsl(236, 33%, 92%);
+	--body-color: hsl(235, 21%, 11%);
+
+	--background-lighter: hsl(0, 0%, 98%);
+	--secondary: hsl(233, 11%, 84%);
 }
 
 html.dark:root {
 	--body-background: hsl(235, 21%, 11%);
+	--body-color: hsl(0, 0%, 98%);
+
+	--background-lighter: hsl(235, 24%, 19%);
+	--secondary: hsl(237, 14%, 26%);
 }
