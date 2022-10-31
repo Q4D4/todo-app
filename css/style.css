@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
@@ -12,11 +14,13 @@ body {
 	width: 100%;
 	position: relative;
 	background-color: var(--body-background);
+	font-family: var(--ff-josefin-sans);
 	font-size: 18px;
 	transition: inherit;
 }
 
-input {
+input,
+button {
 	border: 0;
 	outline: 0;
 }
@@ -61,7 +65,7 @@ html.dark .hero {
 .header {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: baseline;
 	padding-top: 30px;
 	padding-bottom: 30px;
 	transition: inherit;
@@ -69,6 +73,7 @@ html.dark .hero {
 
 .header__heading {
 	color: var(--very-light-gray);
+	font-family: inherit;
 	font-size: 2em;
 	text-transform: uppercase;
 	letter-spacing: 5px;
@@ -118,7 +123,8 @@ html.dark .header__theme-switch {
 }
 
 .add-todo__button:hover {
-	background-color: var(--secondary);
+	background-color: var(--body-color);
+	border-color: var(--body-color);
 }
 
 .add-todo__field {
@@ -126,15 +132,18 @@ html.dark .header__theme-switch {
 	height: 20px;
 	background-color: transparent;
 	color: var(--body-color);
-	font-size: 14px;
+	font-family: inherit;
+	font-size: 16px;
 }
 
 .todo-list {
 	width: 100%;
+	max-height: calc(100vh - 250px);
 	margin-top: 15px;
 	background-color: var(--background-lighter);
 	border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
 	transition: inherit;
 }
 
@@ -144,32 +153,141 @@ html.dark .header__theme-switch {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border-bottom: 1px solid var(--secondary);
+	border-bottom: 1px solid var(--grayish-blue);
 	transition: inherit;
 }
 
 .todo__check {
 	width: 20px;
 	height: 20px;
+	background-color: transparent;
+	border: 1px solid var(--secondary);
+	border-radius: var(--border-rounded);
+	transition: inherit;
+	cursor: pointer;
+}
+
+.todo__check:hover {
+	/* TODO: add gradient as a border color */
+	border-color: var(--body-color);
+}
+
+.todo_completed .todo__check {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: var(--check-background);
+	background-size: cover;
+	border: 0;
+}
+
+.todo__check-image {
+	display: none;
+}
+
+.todo_completed .todo__check-image {
+	display: block;
 }
 
 .todo__content {
 	width: calc(100% - 70px);
-	min-height: 20px;
 	color: var(--body-color);
+	font-family: inherit;
+	font-weight: lighter;
+	font-size: 16px;
+	word-wrap: break-word;
 	transition: inherit;
+}
+
+.todo_completed .todo__content {
+	color: var(--secondary);
+	text-decoration: line-through;
 }
 
 .todo__delete {
 	width: 20px;
 	height: 20px;
+	background-color: transparent;
+	background-image: url('../images/icon-cross.svg');
+	background-size: 80% 80%;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: inherit;
+	cursor: pointer;
 }
 
-.manage-todos {
+.manage {
 	width: 100%;
+	padding: 15px;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	background-color: var(--background-lighter);
+	font-family: inherit;
 	border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
-	overflow: hidden;
+	transition: inherit;
+}
+
+.manage__items {
+	color: var(--secondary);
+	font-family: inherit;
+	font-size: 14px;
+	z-index: 2;
+}
+
+.manage__filter {
+	width: 100%;
+	height: 100%;
+	padding: 15px;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	left: 0;
+	right: 0;
+	top: calc(100% + 15px);
+	background-color: var(--background-lighter);
+	border-radius: var(--border-radius-md);
+	z-index: 1;
+	transition: inherit;
+}
+
+.manage__filter-option {
+	margin-right: 15px;
+	background-color: transparent;
+	color: var(--secondary);
+	font-family: inherit;
+	font-weight: bold;
+	font-size: 14px;
+	transition: inherit;
+	cursor: pointer;
+}
+
+.manage__filter-option:last-child {
+	margin-right: 0;
+}
+
+.manage__filter-option:hover {
+	color: var(--body-color);
+}
+
+.manage__filter-option_active {
+	color: var(--bright-blue) !important;
+}
+
+.manage__clear-completed {
+	background-color: transparent;
+	color: var(--secondary);
+	font-family: inherit;
+	font-size: 14px;
+	z-index: 2;
+	transition: inherit;
+	cursor: pointer;
+}
+
+.manage__clear-completed:hover {
+	color: var(--body-color);
 }
 
 @media (min-width: 576px) {
@@ -195,14 +313,48 @@ html.dark .header__theme-switch {
 	}
 
 	.todo-list {
+		max-height: calc(100vh - 300px);
 		margin-top: 20px;
 	}
-}
-/* @media (min-width: 768px) {
-	.container {
-		max-width: 720px;
+
+	.todo-list::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	.todo-list::-webkit-scrollbar-track {
+		background-color: var(--background-lighter);
+		border-radius: var(--border-radius-md);
+	}
+
+	.todo-list::-webkit-scrollbar-thumb {
+		background-color: var(--grayish-blue);
+		border-radius: var(--border-radius-md);
+	}
+
+	.todo-list::-webkit-scrollbar-thumb:active {
+		background-color: var(--body-color);
+	}
+
+	.todo__delete {
+		opacity: 0;
+	}
+
+	.todo:hover .todo__delete {
+		opacity: 1;
+	}
+
+	.manage__filter {
+		top: 0;
 	}
 }
+
+@media (min-width: 768px) {
+	.container {
+		max-width: 600px;
+	}
+}
+
+/* 
 @media (min-width: 992px) {
 	.container {
 		max-width: 960px;

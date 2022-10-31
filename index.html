@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="" />
 		<meta name="author" content="David Kadaria" />
 		<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
 		<!-- CSS -->
@@ -24,18 +25,32 @@
 				<input class="add-todo__field" type="text" placeholder="Create a new todo..." />
 			</div>
 			<ul class="todo-list">
-				<li class="todo">
-					<input class="todo__check" type="button" value="check" />
-					<span class="todo__content"> todo example 1 </span>
-					<input class="todo__delete" type="button" value="delete" />
+				<li class="todo todo_completed">
+					<button class="todo__check">
+						<img class="todo__check-image" src="./images/icon-check.svg" alt="Checked" />
+					</button>
+					<span class="todo__content">todo example 1</span>
+					<input class="todo__delete" type="button" title="Delete" />
 				</li>
 				<li class="todo">
-					<input class="todo__check" type="button" value="check" />
+					<button class="todo__check" type="button">
+						<img class="todo__check-image" src="./images/icon-check.svg" alt="Checked" />
+					</button>
 					<span class="todo__content">todo example 2</span>
-					<input class="todo__delete" type="button" value="delete" />
+					<input class="todo__delete" type="button" title="Delete" />
 				</li>
 			</ul>
-			<!-- <div class="manage-todos">dsa</div> -->
+			<div class="manage">
+				<div class="manage__items"><span>13</span> items left</div>
+
+				<div class="manage__filter">
+					<button class="manage__filter-option manage__filter-option_active">All</button>
+					<button class="manage__filter-option">Active</button>
+					<button class="manage__filter-option">Completed</button>
+				</div>
+
+				<button class="manage__clear-completed">Clear Completed</button>
+			</div>
 		</main>
 
 		<!-- Add dynamic number -->

@@ -4,11 +4,14 @@
 	--check-background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 	/* Neutral */
 	--very-light-gray: hsl(0, 0%, 98%);
+	--secondary: hsl(235, 19%, 35%);
 	/* Transition */
 	--transition: 0.3s;
 	/* Border Radius */
 	--border-radius-md: 5px;
 	--border-rounded: 50%;
+	/* Fonts */
+	--ff-josefin-sans: 'Josefin Sans', sans-serif;
 }
 
 html.light:root {
@@ -16,7 +19,7 @@ html.light:root {
 	--body-color: hsl(235, 21%, 11%);
 
 	--background-lighter: hsl(0, 0%, 98%);
-	--secondary: hsl(233, 11%, 84%);
+	--grayish-blue: hsl(233, 11%, 84%);
 }
 
 html.dark:root {
@@ -24,5 +27,5 @@ html.dark:root {
 	--body-color: hsl(0, 0%, 98%);
 
 	--background-lighter: hsl(235, 24%, 19%);
-	--secondary: hsl(237, 14%, 26%);
+	--grayish-blue: hsl(237, 14%, 26%);
 }
