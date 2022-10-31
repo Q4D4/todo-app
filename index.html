@@ -64,6 +64,20 @@
 		</div> -->
 
 		<!-- JavaScript -->
-		<script src="./js/theme.js"></script>
+		<script type="text/javascript" src="./js/theme.js"></script>
+		<script type="text/javascript" src="./js/main.js"></script>
+		<script type="text/javascript">
+			// Function will be executed once, after the DOM content load ends
+			document.addEventListener(
+				'DOMContentLoaded',
+				function () {
+					// Call `theme` function (from the `theme.js` file)
+					theme();
+					// Call `main` function (from the `main.js` file)
+					main();
+				},
+				{ once: true }
+			);
+		</script>
 	</body>
 </html>

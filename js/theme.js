@@ -1,4 +1,4 @@
-const main = function () {
+const theme = function () {
 	// References
 	const themeSwitch = document.getElementById('theme-switch');
 	const html = document.documentElement;
@@ -12,7 +12,7 @@ const main = function () {
 	const bgDark = 'hsl(235, 21%, 11%)';
 
 	// Check if theme value is set
-	if (!currentTheme) {
+	if (!currentTheme || (currentTheme !== 'dark' && currentTheme !== 'light')) {
 		setTheme(defaultTheme);
 		currentTheme = defaultTheme;
 	}
@@ -52,6 +52,3 @@ const setTheme = function (theme) {
 const getTheme = function () {
 	return localStorage.getItem('theme');
 };
-
-// Function `main` will be executed after the content load ends
-document.addEventListener('DOMContentLoaded', main);
