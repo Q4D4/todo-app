@@ -1,1 +1,3 @@
-const main = function () {};
+const main = function () {
+	console.log('main');
+};
