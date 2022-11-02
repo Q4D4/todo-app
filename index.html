@@ -21,11 +21,16 @@
 		</header>
 		<main class="container main">
 			<div class="add-todo">
-				<input class="add-todo__button" type="button" title="Add" />
-				<input class="add-todo__field" type="text" placeholder="Create a new todo..." />
+				<input class="add-todo__button" type="button" title="Add" tabindex="2" />
+				<input
+					class="add-todo__field"
+					type="text"
+					placeholder="Create a new todo..."
+					tabindex="1"
+				/>
 			</div>
 			<ul class="todo-list">
-				<li class="todo todo_completed">
+				<!-- <li class="todo todo_completed">
 					<button class="todo__check">
 						<img class="todo__check-image" src="./images/icon-check.svg" alt="Checked" />
 					</button>
@@ -38,10 +43,10 @@
 					</button>
 					<span class="todo__content">todo example 2</span>
 					<input class="todo__delete" type="button" title="Delete" />
-				</li>
+				</li> -->
 			</ul>
 			<div class="manage">
-				<div class="manage__items"><span>13</span> items left</div>
+				<div class="manage__items"><span>X</span> items left</div>
 
 				<div class="manage__filter">
 					<button class="manage__filter-option manage__filter-option_active">All</button>
