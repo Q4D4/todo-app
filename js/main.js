@@ -1,4 +1,9 @@
 let todos = [];
+// References
+const addTodoButton = document.querySelector('.add-todo__button');
+const addTodoField = document.querySelector('.add-todo__field');
+const todoList = document.querySelector('.todo-list');
+const todoCount = document.querySelector('.manage__items span');
 
 const main = function () {
 	getTodos();
@@ -12,11 +17,6 @@ const main = function () {
 };
 
 const activateAddTodo = function () {
-	// References
-	const addTodoButton = document.querySelector('.add-todo__button');
-	const addTodoField = document.querySelector('.add-todo__field');
-
-	/* ***** Event Handlers ***** */
 	// If the user clicks 'add' button
 	addTodoButton.addEventListener('click', function () {
 		addTodoHandler(addTodoField);
@@ -47,18 +47,18 @@ const addTodo = function (content) {
 
 	todos.push(todo);
 	setTodos(todos);
-	// renderTodos(todo);
+	// Render new todo
+	todoList.insertBefore(generateTodoNode(todo), todoList.firstChild);
+	// Set todo count
+	updateTodoCount();
 };
 
 const renderTodos = function () {
-	// References
-	const todoList = document.querySelector('.todo-list');
-	const todoCount = document.querySelector('.manage__items span');
 	// Set todo count
-	todoCount.innerHTML = todos.length;
+	updateTodoCount();
 	// Generate list items
 	for (let i = 0; i < todos.length; i++) {
-		todoList.append(generateTodoNode(todos[i]));
+		todoList.insertBefore(generateTodoNode(todos[i]), todoList.firstChild);
 	}
 };
 
@@ -72,13 +72,32 @@ const generateTodoNode = function (todo) {
 
 	node.innerHTML = `
 		<button class="todo__check">
-			<img class="todo__check-image" src="./images/icon-check.svg" alt="Checked" />
+			<img class="todo__check-image" src="./images/icon-check.svg" alt="Check" />
 		</button>
 		<span class="todo__content">${todo.content}</span>
 		<input class="todo__delete" type="button" title="Delete" />
 	`;
 
+	// node.firstElementChild.addEventListener('click', handleCheck);
+
 	return node;
+};
+
+// const handleCheck = (event) => {
+// 	const parent = event.target.parentElement;
+// 	const id = parent.getAttribute('data-id');
+// 	if (parent.classList.contains('todo_completed')) {
+// 		parent.classList.remove('todo_completed');
+// 		todos.filter((obj) => obj.id === id).completed = false;
+// 	} else {
+// 		parent.classList.add('todo_completed');
+// 		todos.filter((obj) => obj.id === id).completed = true;
+// 	}
+// 	setTodos(todos);
+// };
+
+const updateTodoCount = function () {
+	todoCount.innerHTML = todos.filter((item) => !item.completed).length;
 };
 
 const getTodos = function () {
