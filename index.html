@@ -7,7 +7,6 @@
 		<meta name="theme-color" content="" />
 		<meta name="author" content="David Kadaria" />
 		<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
-		<!-- CSS -->
 		<link rel="stylesheet" href="./css/theme.css" />
 		<link rel="stylesheet" href="./css/style.css" />
 		<title>Todo app</title>
@@ -19,6 +18,7 @@
 			<h1 class="header__heading">Todo</h1>
 			<div class="header__theme-switch" id="theme-switch"></div>
 		</header>
+
 		<main class="container main">
 			<div class="add-todo">
 				<input class="add-todo__button" type="button" title="Add" tabindex="2" />
@@ -29,60 +29,29 @@
 					tabindex="1"
 				/>
 			</div>
-			<ul class="todo-list">
-				<!-- <li class="todo todo_completed">
-					<button class="todo__check">
-						<img class="todo__check-image" src="./images/icon-check.svg" alt="Checked" />
-					</button>
-					<span class="todo__content">todo example 1</span>
-					<input class="todo__delete" type="button" title="Delete" />
-				</li>
-				<li class="todo">
-					<button class="todo__check" type="button">
-						<img class="todo__check-image" src="./images/icon-check.svg" alt="Checked" />
-					</button>
-					<span class="todo__content">todo example 2</span>
-					<input class="todo__delete" type="button" title="Delete" />
-				</li> -->
-			</ul>
+			<ul class="todo-list"></ul>
 			<div class="manage">
 				<div class="manage__items"><span>X</span> items left</div>
 
 				<div class="manage__filter">
-					<button class="manage__filter-option manage__filter-option_active">All</button>
-					<button class="manage__filter-option">Active</button>
-					<button class="manage__filter-option">Completed</button>
+					<button
+						class="manage__filter-option manage__filter-option--all manage__filter-option_active"
+					>
+						All
+					</button>
+					<button class="manage__filter-option manage__filter-option--active">
+						Active
+					</button>
+					<button class="manage__filter-option manage__filter-option--completed">
+						Completed
+					</button>
 				</div>
 
 				<button class="manage__clear-completed">Clear Completed</button>
 			</div>
 		</main>
 
-		<!-- Add dynamic number -->
-		<!-- items left All Active Completed Clear Completed Drag and drop to reorder list -->
-
-		<!-- <div class="attribution">
-			Challenge by
-			<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-				>Frontend Mentor</a
-			>. Coded by <a href="#">Your Name Here</a>.
-		</div> -->
-
-		<!-- JavaScript -->
 		<script type="text/javascript" src="./js/theme.js"></script>
-		<script type="text/javascript" src="./js/main.js"></script>
-		<script type="text/javascript">
-			// Function will be executed once, after the DOM content load ends
-			document.addEventListener(
-				'DOMContentLoaded',
-				function () {
-					// Call `theme` function (from the `theme.js` file)
-					theme();
-					// Call `main` function (from the `main.js` file)
-					main();
-				},
-				{ once: true }
-			);
-		</script>
+		<script type="text/javascript" src="./js/app.js"></script>
 	</body>
 </html>

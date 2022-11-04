@@ -157,6 +157,10 @@ html.dark .header__theme-switch {
 	transition: inherit;
 }
 
+.todo_hidden {
+	display: none;
+}
+
 .todo__check {
 	width: 20px;
 	height: 20px;
@@ -227,6 +231,10 @@ html.dark .header__theme-switch {
 	font-family: inherit;
 	border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
 	transition: inherit;
+}
+
+.manage_hidden {
+	display: none;
 }
 
 .manage__items {
