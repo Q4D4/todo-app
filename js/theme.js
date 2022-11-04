@@ -10,6 +10,10 @@ const transitionSetDelay = 300;
 const bgLight = 'hsl(236, 33%, 92%)';
 const bgDark = 'hsl(235, 21%, 11%)';
 
+const setTheme = function (theme) {
+	localStorage.setItem('theme', theme);
+};
+
 // Check if theme value is set
 if (!currentTheme || (currentTheme !== 'dark' && currentTheme !== 'light')) {
 	setTheme(defaultTheme);
@@ -42,7 +46,3 @@ themeSwitch.addEventListener('click', function () {
 		themeColor.content = bgDark;
 	}
 });
-
-const setTheme = function (theme) {
-	localStorage.setItem('theme', theme);
-};
